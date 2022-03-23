@@ -75,4 +75,5 @@ int main()
     printf("\nconcated = ");
     temp = concat(temp, temp);
     printList(temp);
+    return (0);
 }
