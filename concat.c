@@ -55,6 +55,7 @@ struct node *concat(struct node *sourceList1, struct node *sourceList2)
     {
         curr = curr->next;
     }
+
     curr->next = copyList(sourceList2);
     return targetList;
 }
@@ -72,5 +73,6 @@ int main()
     printf("\ntemp = ");
     printList(temp);
     printf("\nconcated = ");
-    printList(concat(temp, temp));
+    temp = concat(temp, temp);
+    printList(temp);
 }
