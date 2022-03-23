@@ -81,6 +81,7 @@ int main()
     insertFirst(1, 10);
     insertFirst(2, 20);
     insertFirst(3, 30);
+    struct node *l = head;
     printf("\nOriginal List: \n");
     printList();
     reverse(&head);
