@@ -1,12 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+ * @brief a sturct for a list node
+ *
+ */
 struct node
 {
     int data;
     struct node *next;
 };
-
+/**
+ * @brief this function adds an item to the beginning the list
+ *
+ * @param head - the beginning of the list
+ * @param value - the value we want to insert
+ */
 void insertFirst(struct node **head, int value)
 {
     struct node *temp = (struct node *)malloc(sizeof(struct node));
@@ -14,6 +22,12 @@ void insertFirst(struct node **head, int value)
     temp->next = *head;
     *head = temp;
 }
+/**
+ * @brief this function deletes the first item of the list
+ *
+ * @param head - the first node of the list
+ * @return struct node* - the deleted item
+ */
 struct node *deleteFirst(struct node **head)
 {
     struct node *temp = *head;
@@ -21,7 +35,11 @@ struct node *deleteFirst(struct node **head)
     return temp;
 }
 
-// display the list
+/**
+ * @brief display the list
+ *
+ * @param head - the first node of the list we'll display
+ */
 void printList(struct node *head)
 {
     struct node *ptr = head;
@@ -36,7 +54,12 @@ void printList(struct node *head)
 
     printf(" ]");
 }
-
+/**
+ * @brief copy a list recursively
+ *
+ * @param sourceList - the source list we want to copy
+ * @return struct node* - the copied list
+ */
 struct node *copyList(struct node *sourceList)
 {
     if (sourceList == NULL)
@@ -46,7 +69,13 @@ struct node *copyList(struct node *sourceList)
     targetList->next = copyList(sourceList->next);
     return targetList;
 }
-
+/**
+ * @brief concatanate two lists
+ *
+ * @param sourceList1 - the first list
+ * @param sourceList2 - the second list
+ * @return struct node* - the concatanated list
+ */
 struct node *concat(struct node *sourceList1, struct node *sourceList2)
 {
     struct node *targetList = copyList(sourceList1);
