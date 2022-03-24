@@ -2,7 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+/**
+ * @brief a sturct for a list node
+ *
+ */
 struct node
 {
     int data;
@@ -13,7 +16,10 @@ struct node
 struct node *head = NULL;
 struct node *current = NULL;
 
-// display the list
+/**
+ * @brief display the list
+ *
+ */
 void printList()
 {
     struct node *ptr = head;
@@ -28,8 +34,13 @@ void printList()
 
     printf(" ]");
 }
+/**
+ * @brief insert link at the first location
+ *
+ * @param key - the item's key
+ * @param data -the item's data
+ */
 
-// insert link at the first location
 void insertFirst(int key, int data)
 {
     // create a link
@@ -45,7 +56,11 @@ void insertFirst(int key, int data)
     head = link;
 }
 
-// delete first item
+/**
+ * @brief delete first item
+ *
+ * @return struct node* - the deleted item
+ */
 struct node *deleteFirst()
 {
 
@@ -58,7 +73,11 @@ struct node *deleteFirst()
     // return the deleted link
     return tempLink;
 }
-
+/**
+ * @brief this function reverses a list
+ *
+ * @param head_ref - the first node in the reversed list
+ */
 void reverse(struct node **head_ref)
 {
     struct node *curr = (*head_ref);
@@ -75,7 +94,11 @@ void reverse(struct node **head_ref)
 
     *head_ref = prev;
 }
-
+/**
+ * @brief main function
+ *
+ * @return int
+ */
 int main()
 {
     insertFirst(1, 10);
