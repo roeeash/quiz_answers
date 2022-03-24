@@ -9,6 +9,7 @@ struct node
 
 void insertFirst(struct node **head, int value)
 {
+    // this function adds an item to the beginning the list
     struct node *temp = (struct node *)malloc(sizeof(struct node));
     temp->data = value;
     temp->next = *head;
@@ -16,6 +17,7 @@ void insertFirst(struct node **head, int value)
 }
 struct node *deleteFirst(struct node **head)
 {
+    // this function deletes the first item of the list
     struct node *temp = *head;
     *head = (*head)->next;
     return temp;
@@ -36,9 +38,16 @@ void printList(struct node *head)
 
     printf(" ]");
 }
-
+/**
+ * @brief this function merges two lists
+ *
+ * @param l1 - the first list
+ * @param l2 - the second list
+ * @return struct node* - the merged list
+ */
 struct node *merge(struct node *l1, struct node *l2)
 {
+    // if one of the lists in null, return the other one
     if (l1 == NULL)
     {
         return l2;
@@ -53,6 +62,7 @@ struct node *merge(struct node *l1, struct node *l2)
         struct node *curr1 = l1;
         struct node *curr2 = l2;
 
+        // while both lists are not null, add one item from each list
         while (curr1 != NULL && curr2 != NULL)
         {
             insertFirst(&new_list, curr1->data);
@@ -61,6 +71,7 @@ struct node *merge(struct node *l1, struct node *l2)
             curr2 = curr2->next;
         }
 
+        // add the rest
         while (curr1 != NULL)
         {
             insertFirst(&new_list, curr1->data);
@@ -75,9 +86,14 @@ struct node *merge(struct node *l1, struct node *l2)
         return new_list;
     }
 }
-
+/**
+ * @brief this function reverses the list
+ *
+ * @param head_ptr - a pointer to the head of the list
+ */
 void reverse(struct node **head_ptr)
 {
+
     struct node *head = (*head_ptr);
     struct node *prev = NULL;
     struct node *next;
