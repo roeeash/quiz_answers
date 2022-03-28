@@ -4,6 +4,8 @@ class Node:
         self.right = None
         self.data = data
 
+    # insert into the tree
+
     def insert(self, data):
         if self.data == data:
             return
@@ -20,6 +22,7 @@ class Node:
             else:
                 self.right.insert(data)
 
+    #print the tree by in-order traversal
     def print_tree(self):
         if self.right:
             self.right.print_tree()
@@ -27,6 +30,8 @@ class Node:
         if self.left:
             self.left.print_tree()
 
+    # search the tree
+    
     def search_tree(self, data):
         if self.data == data:
             return 1
