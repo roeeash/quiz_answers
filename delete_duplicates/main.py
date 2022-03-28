@@ -28,7 +28,7 @@ def get_list_from_path(folder_path):
 
 if __name__ == '__main__':
     path = input("insert path")
-    list_of_files = ["ola.py", "hello.exe"] + ["hi.txt"] * 1000 + ["hi.txt", "hello.exe", "a.c"]
+    list_of_files = ["ola.py", "hello.exe"] + ["hi.txt"] * 1000 + ["hi.txt", "hello.exe", "a.c"]+["trilili_tralala.java"]
     root, d = sort_by_hash(list_of_files)
     print(d)
     root.print_tree()
