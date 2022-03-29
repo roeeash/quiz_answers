@@ -15,11 +15,13 @@ def sort_by_hash(file_list):
             dictionary[file] = value
         else:
             if root_node is not None:
-                if root_node.search_tree(value) == 0:
-                    root_node.insert(value)
+                if search_tree(root_node,value) == 0:
+                    insert(root_node,value)
                     dictionary[file] = value
         i += 1
     return root_node, dictionary
+
+
 
 
 
