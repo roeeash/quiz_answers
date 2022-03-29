@@ -22,13 +22,15 @@ def sort_by_hash(file_list):
     return root_node, dictionary
 
 
-def get_list_from_path(folder_path):
-    return os.system("ls %s", folder_path)
-
 
 if __name__ == '__main__':
-    path = input("insert path")
-    list_of_files = ["ola.py", "hello.exe"] + ["hi.txt"] * 1000 + ["hi.txt", "hello.exe", "a.c"]+["trilili_tralala.java"]
-    root, d = sort_by_hash(list_of_files)
-    print(d)
-    root.print_tree()
+   path = input("insert path")
+   #list all files in that directory
+   list_of_files = os.listdir(path)
+   print("previous list of files",list_of_files)
+   print("previous length of the list:",len(list_of_files))
+   #delete all duplicates
+   root, d = sort_by_hash(list_of_files)
+   print("new list of files",d)
+   print("new length of the list:",len(d.keys()))
+   root.print_tree()
