@@ -62,7 +62,9 @@ def delete(root, value):
                 return root.right
             else:
                 next = find_successor(root)
+                #copy successor's data into root data
                 root.data = next.data
+                # delete successor's data from right subtree
                 root.right = delete(root.right,next.data)
             return root
 
