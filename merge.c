@@ -1,29 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+ * @brief a sturct for a list node
+ *
+ */
 struct node
 {
     int data;
     struct node *next;
 };
-
+/**
+ * @brief this function adds an item to the beginning the list
+ *
+ * @param head - the beginning of the list
+ * @param value - the value we want to insert
+ */
 void insertFirst(struct node **head, int value)
 {
-    // this function adds an item to the beginning the list
     struct node *temp = (struct node *)malloc(sizeof(struct node));
     temp->data = value;
     temp->next = *head;
     *head = temp;
 }
+/**
+ * @brief this function deletes the first item of the list
+ *
+ * @param head - the first node of the list
+ * @return struct node* - the deleted item
+ */
 struct node *deleteFirst(struct node **head)
 {
-    // this function deletes the first item of the list
+
     struct node *temp = *head;
     *head = (*head)->next;
     return temp;
 }
 
-// display the list
+/**
+ * @brief display the list
+ *
+ * @param head - the first node of the list we'll display
+ */
 void printList(struct node *head)
 {
     struct node *ptr = head;
@@ -47,45 +64,35 @@ void printList(struct node *head)
  */
 struct node *merge(struct node *l1, struct node *l2)
 {
-    // if one of the lists in null, return the other one
-    if (l1 == NULL)
-    {
-        return l2;
-    }
-    else if (l2 == NULL)
-    {
-        return l1;
-    }
-    else
-    {
-        struct node *new_list = NULL;
-        struct node *curr1 = l1;
-        struct node *curr2 = l2;
 
-        // while both lists are not null, add one item from each list
-        while (curr1 != NULL && curr2 != NULL)
-        {
-            insertFirst(&new_list, curr1->data);
-            curr1 = curr1->next;
-            insertFirst(&new_list, curr2->data);
-            curr2 = curr2->next;
-        }
+    struct node *new_list = NULL;
+    struct node *curr1 = l1;
+    struct node *curr2 = l2;
 
-        // add the rest
-        while (curr1 != NULL)
-        {
-            insertFirst(&new_list, curr1->data);
-            curr1 = curr1->next;
-        }
-        while (curr2 != NULL)
-        {
-            insertFirst(&new_list, curr1->data);
-            curr2 = curr2->next;
-        }
-
-        return new_list;
+    // while both lists are not null, add one item from each list
+    while (curr1 != NULL && curr2 != NULL)
+    {
+        insertFirst(&new_list, curr1->data);
+        curr1 = curr1->next;
+        insertFirst(&new_list, curr2->data);
+        curr2 = curr2->next;
     }
+
+    // add the rest
+    while (curr1 != NULL)
+    {
+        insertFirst(&new_list, curr1->data);
+        curr1 = curr1->next;
+    }
+    while (curr2 != NULL)
+    {
+        insertFirst(&new_list, curr1->data);
+        curr2 = curr2->next;
+    }
+
+    return new_list;
 }
+
 /**
  * @brief this function reverses the list
  *
@@ -107,7 +114,11 @@ void reverse(struct node **head_ptr)
     }
     *head_ptr = prev;
 }
-
+/**
+ * @brief main function
+ *
+ * @return int
+ */
 int main()
 {
     struct node *list = NULL;
